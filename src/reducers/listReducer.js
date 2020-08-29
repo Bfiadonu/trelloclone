@@ -8,11 +8,11 @@ const initialState = [
       id: `list-${0}`,
       cards: [
         {
-           id: `list-${0}`,
+           id: `card-${0}`,
            text: "we created a static list and a static card"
         },
         {
-          id: `list-${1}`,
+          id: `card-${1}`,
           text: "we used a mix between material UI React and styled components"
         }
         
@@ -24,19 +24,19 @@ const initialState = [
       id: `list-${1}`,
       cards: [
         {
-           id: `list-${2}`,
+           id: `card-${2}`,
            text: "we will create our first reducer"
         },
         {
-          id: `list-${3}`,
+          id: `card-${3}`,
           text: "and render many cards on our list with static data"
         },
         {
-          id: `list-${4}`,
+          id: `card-${4}`,
           text: "we will also make some little change I forgot in the last episode (link tags for roboto font and icons,..)"
         },
         {
-          id: `list-${5}`,
+          id: `card-${5}`,
           text: "we will also make some little change I forgot in the last episode (link tags for roboto font and icons,..)"
         }
         
@@ -85,7 +85,6 @@ const listReducer = (state = initialState, action) => {
       droppableIdEnd,
       droppableIndexStart,
       droppableIndexEnd,
-      draggableId,
       type
       } = action.payload;
       const newState = [...state];
@@ -98,13 +97,13 @@ const listReducer = (state = initialState, action) => {
       
       
      
-      if(droppableIdStart === droppableIdEnd ) {
+      if (droppableIdStart === droppableIdEnd ) {
         const list = state.find(list => droppableIdStart === list.id);
         const card = list.cards.splice(droppableIndexStart, 1);
         list.cards.splice(droppableIndexEnd, 0, ...card);
       }
       
-      if(droppableIdStart !== droppableIdEnd) {
+      if (droppableIdStart !== droppableIdEnd) {
         const listStart = state.find(list => droppableIdStart === list.id)
         
         const card = listStart.cards.splice(droppableIndexStart, 1);

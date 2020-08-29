@@ -26,9 +26,11 @@ const TrelloCard = ({ text, id, index })=> {
         </Typography>
     </CardContent>
     </Card>
+
 </CardContainer>
 
      )}
+    
     </Draggable>
   );
 };

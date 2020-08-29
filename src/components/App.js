@@ -14,10 +14,10 @@ flex-direction: row;
 
 class App extends Component {
   
-  onDragEnd = (result) => {
+  onDragEnd = result => {
    const { destination, source, draggableId, type } = result;
     
-    if(!destination) {
+    if (!destination) {
       return;
     }
     
@@ -28,19 +28,18 @@ class App extends Component {
      source.index,
      destination.index,
      draggableId,
-      type
+     type
     )
     );
   };
   
   render() {
-    
     const { lists } = this.props;
   return (
     <DragDropContext onDragEnd={this.onDragEnd}>
     <div>
-      <h2>Hello Youtube</h2>
-    <Droppable droppableId="all=lists" direction="horizontal" type="list">
+      <h1>Trello Clone</h1>
+    <Droppable droppableId="all-lists" direction="horizontal" type="list">
     {provided => (
     <ListContainer {...provided.droppableProps} ref={provided.innerRef}>
     {lists.map((list, index) => (
@@ -52,13 +51,13 @@ class App extends Component {
     index={index}
     />
   ))}
-{provided.placeholder}
+ {provided.placeholder}
   <TrelloActionButton list />
+   
     </ListContainer>
-  
+ 
   )}
-</Droppable>
-    
+</Droppable> 
   </div>
 </DragDropContext>
   );
